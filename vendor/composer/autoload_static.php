@@ -87,11 +87,16 @@ class ComposerStaticInit29e5b5f05fc9ce34a402508076c2fe77
         ),
     );
 
+    public static $classMap = array (
+        'Bookings' => __DIR__ . '/../..' . '/app/models/Bookings.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit29e5b5f05fc9ce34a402508076c2fe77::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit29e5b5f05fc9ce34a402508076c2fe77::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit29e5b5f05fc9ce34a402508076c2fe77::$classMap;
 
         }, null, ClassLoader::class);
     }

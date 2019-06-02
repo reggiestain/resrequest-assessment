@@ -1,16 +1,32 @@
 <?php
 
-class Home extends Controller{
-    protected $Reservation;
-    
-    public function __construct() {
-        $this->Reservation = $this->model('Reservation');
+/**
+ * The default home controller, called when no controller/method has been
+ * passes to the application
+ *  
+ */
+class Home extends Controller {
+
+    /**
+     * Default controller method
+     * 
+     * @return viod
+     */
+    public function index($name = '') {
+
+        $this->view('home/index', ['name' => $name]);
     }
 
-    public function index($name=''){
-        $reserv = $this->Reservation;
-        $reserv->name = $name;
-                
-        $this->view('home/index',['name'=>$reserv->name]);
+    public function create() {
+
+        Bookings::create([
+            'firstname' => $user,
+            'surname' => $email,
+            'email' => $email,
+            'check_in' => $email,
+            'check_out' => $email,
+            'rooms' => $rooms
+        ]);
     }
+
 }
