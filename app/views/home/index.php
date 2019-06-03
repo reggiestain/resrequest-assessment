@@ -5,12 +5,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap-->
-        <link rel="stylesheet" href="../../public/css/bootstrap.min.css">  
-        <link rel="stylesheet" href="../../public/css/jquery.dataTables.css">
-        <link rel="stylesheet" href="../../public/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="../../public/css/bootstrap.min.css">     
+        <link rel="stylesheet" href="../../public/css/styles.css">
         <link rel="stylesheet" href="../../public/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../../public/css/bootstrap-admin-theme.css">
-        <link rel="stylesheet" href="../../public/css/bootstrap-admin-theme-change-size.css">       
+        <link rel="stylesheet" href="../../public/css/bootstrap-datetimepicker.min.css">
+
     </head>
     <body>
         <!--Header-->
@@ -33,7 +32,7 @@
                                     </div>
                                 </div>                
                                 <div class="panel-body">
-                                    <div><a class="btn btn-xs btn-success pull-right" id="add-prop"><i class="fa fa-pencil"></i> New</a></div>
+                                    <div><a class="btn btn-xs btn-primary pull-right" id="newBooking"><i class="fa fa-pencil"></i> New</a></div>
                                     <table id="session" class="table table-hover">
                                         <thead>
                                             <tr>                               
@@ -62,14 +61,86 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal -->
+            <div id="bookModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <form action="/public/hom/create" method="post">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h3 class="modal-title text-center">Create Reservation</h3>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>Name</label>                                      
+                                    <input type="text" class="form-control" name="firstname">
+                                </div>
+                                <div class="form-group">
+                                    <label>Surname</label>                                                        
+                                    <input type="text" class="form-control" name="firstname">                                   
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>                                            
+                                    <input type="email" class="form-control" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Rooms</label>                                                            
+                                    <select class="form-control">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="1">4</option>
+                                        <option value="2">5</option>
+                                        <option value="3">6</option>
+                                        <option value="1">7</option>
+                                        <option value="2">8</option>
+                                        <option value="3">9+</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Check In</label>
+                                    <div class="input-group date">                                             
+                                        <input id="check-in" class="form-control" name="check_in">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Check Out</label>
+                                    <div class="input-group date">                                             
+                                        <input id="check-out" class="form-control" name="check_out">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
+                                    </div>
+                                </div>      
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
         </div>
-    <!--Footer-->
-    <?php include '../app/views/includes/footer.php'; ?>
-    <!--scripts-->
-    <script src="../../public/js/jquery.js"></script>
-    <script src="../../public/js/bootstrap.min.js"></script>
-    <script src="../../public/js/jquery.dataTables.js"></script>
-    <script src="../../public/js/Datatable.bootstrap.js"></script>
-</body>
+        <!--Footer-->
+        <?php include '../app/views/includes/footer.php'; ?>
+        <!--scripts-->
+        <script src="../../public/js/jquery.js"></script>
+        <script src="../../public/js/bootstrap.min.js"></script>
+        <script src="../../public/js/moment.min.js"></script>
+        <script src="../../public/js/jquery.dataTables.js"></script>
+        <script src="../../public/js/Datatable.bootstrap.js"></script>
+        <script src="../../public/js/bootstrap-datetimepicker.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#newBooking").click(function () {
+                    $("#bookModal").modal();
+                });
+                $('#check-in').datetimepicker({format: 'DD-MM-YYYY HH:mm:ss'});
+                $('#check-out').datetimepicker({format: 'DD-MM-YYYY HH:mm:ss'});
+            });
+        </script>
+    </body>
 </html>
 
