@@ -9,10 +9,12 @@ List of libraries
 
 Below, a list of libraries used for implementation.
 
-| Language                  | Library   
-| ------------------------- | ------------------------------------------------------------------------------ |
-| PHP [illuminate/database] | (https://github.com/illuminate/database)                                       | 
-| JQUERY | CSS [Datatables] | (https://datatables.net/examples/styling/bootstrap)                            |
+| Language                      | Library   
+| ----------------------------- | ------------------------------------------------------------------------------ |
+| PHP 7.2 [illuminate/database] | (https://github.com/illuminate/database)                                       | 
+| jquery  [DataTables]          | (https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js)               |
+| CSS     [DataTables]          | (https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css)          |
+                                
 ## Installation
 
 1. First, download the project folder, either directly or by cloning the repo into the "www" directory on your apache server.
