@@ -9,9 +9,10 @@ List of libraries
 
 Below, a list of libraries used for implementation.
 
-| Language                  | Library                                                                        | 
-| PHP [illuminate/database] | (https://github.com/illuminate/database)                                       |                                                                              |
-
+| Language                  | Library   
+| ------------------------- | ------------------------------------------------------------------------------ |
+| PHP [illuminate/database] | (https://github.com/illuminate/database)                                       | 
+| JQUERY | CSS [Datatables] | (https://datatables.net/examples/styling/bootstrap)                            |
 ## Installation
 
 1. First, download the project folder, either directly or by cloning the repo into the "www" directory on your apache server.
