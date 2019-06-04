@@ -12,11 +12,15 @@ class Home extends Controller {
      * 
      * @return viod
      */
-    public function index($name = '') {
-
-        $this->view('home/index', ['name' => $name]);
+    public function index() {
+        $this->view('home/index', ['bookings' => Bookings::get()]);
     }
 
+    /**
+     * Create reservation
+     * 
+     * @return void
+     */
     public function create() {
         $errors ='';
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -58,7 +62,7 @@ class Home extends Controller {
             }
 
             if ($_POST['check_in'] != "") {
-                $_POST['message'] = validateDate($_POST['check_in'], $format = 'Y-m-d H:i:s');
+                $_POST['message'] = $this->validateDate($_POST['check_in'], $format = 'Y-m-d H:i:s');
                 if ($_POST['message'] == "") {
                     $errors .= 'Please enter check in date.<br/>';
                 }
@@ -67,7 +71,7 @@ class Home extends Controller {
             }
 
             if ($_POST['check_out'] != "") {
-                $_POST['message'] = validateDate($_POST['check_out'], $format = 'Y-m-d H:i:s');
+                $_POST['message'] = $this->validateDate($_POST['check_out'], $format = 'Y-m-d H:i:s');
                 if ($_POST['message'] == "") {
                     $errors .= 'Please enter check out date.<br/>';
                 }
@@ -84,9 +88,12 @@ class Home extends Controller {
                     'check_out' => $_POST['check_out'],
                     'rooms' => $_POST['rooms']
                 ]);
-                echo "Thank you for your email!<br/><br/>";
+                echo "<div class='alert alert-success alert-dismissible'>"
+                   . "<a href='' class='close' data-dismiss='alert' aria-label='close'>&times;</a>"
+                   . "Your reservation has been save successfully. <a href='home'> Click to view reservations</a></div>";
             } else {
-                echo '<div style="color: red">' . $errors . '<br/></div>';
+                echo "<div class='alert alert-danger alert-dismissible'>"
+                   . "<a href='' class='close' data-dismiss='alert' aria-label='close'>&times;</a>".$errors."</div>";          
             }
         }
     }
