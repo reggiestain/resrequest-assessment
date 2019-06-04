@@ -5,10 +5,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap-->
-        <link rel="stylesheet" href="../../public/css/bootstrap.min.css">     
-        <link rel="stylesheet" href="../../public/css/styles.css">
-        <link rel="stylesheet" href="../../public/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../../public/css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="/resrequest-assessment/public/css/bootstrap.min.css">     
+        <link rel="stylesheet" href="public/css/styles.css">
+        <link rel="stylesheet" href="public/css/font-awesome.min.css">
+        <link rel="stylesheet" href="public/css/bootstrap-datetimepicker.min.css">
 
     </head>
     <body>
@@ -66,7 +66,7 @@
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
-                        <form action="/public/hom/create" method="post">
+                        <form action="public/home/create" method="post">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <h3 class="modal-title text-center">Create Reservation</h3>
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Surname</label>                                                        
-                                    <input type="text" class="form-control" name="firstname">                                   
+                                    <input type="text" class="form-control" name="surname">                                   
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>                                            
@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Rooms</label>                                                            
-                                    <select class="form-control">
+                                    <select class="form-control" name="rooms">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -126,19 +126,19 @@
         <!--Footer-->
         <?php include '../app/views/includes/footer.php'; ?>
         <!--scripts-->
-        <script src="../../public/js/jquery.js"></script>
-        <script src="../../public/js/bootstrap.min.js"></script>
-        <script src="../../public/js/moment.min.js"></script>
-        <script src="../../public/js/jquery.dataTables.js"></script>
-        <script src="../../public/js/Datatable.bootstrap.js"></script>
-        <script src="../../public/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="public/js/jquery.js"></script>
+        <script src="public/js/bootstrap.min.js"></script>
+        <script src="public/js/moment.min.js"></script>
+        <script src="public/js/jquery.dataTables.js"></script>
+        <script src="public/js/Datatable.bootstrap.js"></script>
+        <script src="public/js/bootstrap-datetimepicker.min.js"></script>
         <script>
             $(document).ready(function () {
                 $("#newBooking").click(function () {
                     $("#bookModal").modal();
                 });
-                $('#check-in').datetimepicker({format: 'DD-MM-YYYY HH:mm:ss'});
-                $('#check-out').datetimepicker({format: 'DD-MM-YYYY HH:mm:ss'});
+                $('#check-in').datetimepicker({format: 'YYYY-MM-DD HH:mm:ss'});
+                $('#check-out').datetimepicker({format: 'YYYY-MM-DD HH:mm:ss'});
             });
         </script>
     </body>
